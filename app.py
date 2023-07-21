@@ -87,6 +87,53 @@ def get_employees():
 
     return jsonify(employee_list = employee_list ), 200
 
+# --------------------- UPDATE EMPLOYEE BY ID (PUT) -------------------------------
+@app.route('/employees/<int:id>', methods=['PUT'])
+def update_employees(id):
+    with app.app_context():
+        data = request.get_json()
+        name = data['name']
+        email = data['email']
+        phone = data['phone']
+        address = data['address']
+        division_id = data['division_id']
+
+        # Cek apakah data employee dengan id tertentu sudah ada di database
+        existing_employee = Employess.query.filter_by(id=id).first()
+        if not existing_employee:
+            return jsonify({'message': 'Employee not found!'}), 404
+        
+        # Cek apakah ID divisi ada di database
+        existing_division = Divisions.query.get(division_id)
+        if not existing_division:
+            return jsonify({'message': 'Division not found!'}), 404
+        
+        # Update data employee
+        existing_employee.name = name
+        existing_employee.email = email
+        existing_employee.phone = phone
+        existing_employee.address = address
+        existing_division.name = name
+        db.session.commit()
+
+        return jsonify({'message': 'Employee updated successfully!'}), 200
+
+# --------------------- DELETE EMPLOYEE BY ID (DELETE) -------------------------------
+@app.route('/employees/<int:id>', methods=['DELETE'])
+def delete_employee(id):
+    with app.app_context():
+        # Cek apakah data employee dengan id tertentu sudah ada di database
+        existing_employee = Employess.query.filter_by(id=id).first()
+        if not existing_employee:
+            return jsonify({'message': 'Employee not found!'}), 404
+
+        # Hapus data employee
+        db.session.delete(existing_employee)
+        db.session.commit()
+
+        return jsonify({'message': 'Employee deleted successfully!'}), 200
+
+
 
 
 # --------------------- CREATE DIVISION (POST) -------------------------------
