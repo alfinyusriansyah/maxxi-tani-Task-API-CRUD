@@ -1,2 +1,4 @@
 # maxxi-tani-task-API-CRUD
 Maxxi Tani Task make API CRUD employees
+<p align="center"><a href="[https://laravel.com](https://www.google.com/url?sa=i&url=https%3A%2F%2Fglints.com%2Fid%2Fcompanies%2Fmaxxi-tani-teknologi%2Fc571fad2-5750-4989-9457-430003558237&psig=AOvVaw2BB7CcS7a3tSdo8SteZek2&ust=1690019989550000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJC2-ZnFn4ADFQAAAAAdAAAAABAE)https://www.google.com/url?sa=i&url=https%3A%2F%2Fglints.com%2Fid%2Fcompanies%2Fmaxxi-tani-teknologi%2Fc571fad2-5750-4989-9457-430003558237&psig=AOvVaw2BB7CcS7a3tSdo8SteZek2&ust=1690019989550000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJC2-ZnFn4ADFQAAAAAdAAAAABAE" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Requirement Task 
