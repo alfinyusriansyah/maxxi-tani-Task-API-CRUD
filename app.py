@@ -211,6 +211,22 @@ def get_division():
     return jsonify(division_list = division_list ), 200
 
 
+# --------------------- DELETE DIVISION BY ID (DELETE) -------------------------------
+@app.route('/divisions/<int:id>', methods=['DELETE'])
+def delete_division(id):
+    with app.app_context():
+        # Cek apakah data employee dengan id tertentu sudah ada di database
+        existing_division = Divisions.query.filter_by(id=id).first()
+        if not existing_division:
+            return jsonify({'message': 'Division not found!'}), 404
+
+        # Hapus data employee
+        db.session.delete(existing_division)
+        db.session.commit()
+
+        return jsonify({'message': 'Division deleted successfully!'}), 200
+
+
 
 if __name__ == '__main__':
     # Pindahkan db.create_all() ke dalam blok ini, sehingga hanya dipanggil sekali saat aplikasi dijalankan.
