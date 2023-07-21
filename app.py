@@ -134,6 +134,43 @@ def delete_employee(id):
         return jsonify({'message': 'Employee deleted successfully!'}), 200
 
 
+# --------------------- GET DETAIL BY ID EMPLY (GET) -------------------------------
+@app.route('/employees/<int:id>', methods=['GET'])
+def get_detail_employee(id):
+    with app.app_context():
+        employees = Employess.query.get(id)
+        if not employees:
+            return jsonify({'message': 'Employee not found!'}), 404
+        
+        employee_data = {
+                'id': employees.id,
+                'name': employees.name,
+                'email': employees.email,
+                'phone': employees.phone,
+                'address': employees.address,
+                'division_name': employees.division.name
+            }
+        return jsonify(employee_data ), 200
+    
+# --------------------- GET DETAIL BY ID DIVISION (GET) -------------------------------    
+@app.route("/employees/divisions/<int:id>", methods=['GET'])
+def get_employee_by_div(id):
+    with app.app_context():
+        div_id = Employess.query.filter_by(id=id).first()
+        print(div_id)
+        if not div_id :
+            return jsonify({'message':'invalid ID division'}), 404
+        
+        employee_data = {
+                'id': div_id.id,
+                'name': div_id.name,
+                'email': div_id.email,
+                'phone': div_id.phone,
+                'address': div_id.address,
+        }
+
+        return jsonify(employee_data), 200
+
 
 
 # --------------------- CREATE DIVISION (POST) -------------------------------
