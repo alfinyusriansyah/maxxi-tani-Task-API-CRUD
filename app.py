@@ -66,9 +66,26 @@ def create_employee():
 
         return jsonify({'message': 'Employee created successfully!', 'data' : data}), 201
 
+
+
 # ---------------------- GET ALL EMPLOYEE (GET) -------------------------------
+@app.route('/employees', methods=['GET'])
+def get_employees():
+    employees = Employess.query.order_by(Employess.name,Employess.id ).all()
 
+    employee_list = []
+    for employee in employees:
+        employee_data = {
+            'id': employee.id,
+            'name': employee.name,
+            'email': employee.email,
+            'phone': employee.phone,
+            'address': employee.address,
+            'division_name': employee.division.name
+        }
+        employee_list.append(employee_data)
 
+    return jsonify(employee_list = employee_list ), 200
 
 
 
@@ -94,6 +111,21 @@ def create_division():
         db.session.commit()
 
         return jsonify({'message': 'Division created successfully!', 'division_id': new_division.id}), 201
+
+# ---------------------- GET ALL DIVISION (GET) -------------------------------
+@app.route('/divisions', methods=['GET'])
+def get_division():
+    divisions = Divisions.query.order_by(Divisions.name).all()
+
+    division_list = []
+    for division in divisions:
+        devision_data = {
+            'id': division.id,
+            'name': division.name
+        }
+        division_list.append(devision_data)
+    return jsonify(division_list = division_list ), 200
+
 
 
 if __name__ == '__main__':
