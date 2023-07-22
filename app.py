@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
 
-# Load variabel lingkungan dari file my .env ini
+# Load variabel lingkungan dari file my .env
 load_dotenv()
 
 app = Flask(__name__)
