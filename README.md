@@ -31,7 +31,14 @@ DATABASE_PORT=
 DATABASE_NAME=
 ```
 
-3. Running 
+3. To make sure again, install dependencies and required libraries in requirement.txt 
+```markdown
+
+pip install -r requirements.txt
+
+```
+
+4. Running 
 ```markdown
 
 python app.py
