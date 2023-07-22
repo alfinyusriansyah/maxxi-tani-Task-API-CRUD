@@ -7,8 +7,8 @@
 3. **[DELETE] /employees/** to delete employee data
 4. **[GET] /employees** to display data on all employee data, sorted
 alphabetically
-5. **[GET] /employees/<employee-number-id>** displays the details of 1 particular employee
-6. **[GET] /employee/divisions/<id-division>** displays a list of employees from a particular division
+5. **[GET] /employees/(employee-number-id)** displays the details of 1 particular employee
+6. **[GET] /employee/(divisions/<id-division)** displays a list of employees from a particular division
 
 #  How to Setup a Project You Cloned from Github.com
 
