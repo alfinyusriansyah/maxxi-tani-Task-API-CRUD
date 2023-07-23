@@ -19,23 +19,32 @@ Python 3.11.4
 1. Clone GitHub repo for this project locally
 ```markdown
 
-git clone https://github.com/alfinyusriansyah/maxxi-tani-task-API-CRUD
+git clone git clone https://github.com/alfinyusriansyah/maxxi-tani-task-API-CRUD
 
 ```
-2. After Clone Github repo. Create file .env to connect database, adjust the contents according to the needs of the database  : 
+
+2. Create environment in your local and Activate your environment (iam use windows)
+```markdown
+
+python -m venv (env_name)
+(env_name)\Scripts\actiavte.bat
+
+```
+
+3. Install dependecy and library in requirements.txt 
+```markdown
+
+pip install -r requirements.txt
+
+```
+
+3. After that. Create file .env to connect database, adjust the contents according to the needs of the database  : 
 ```markdown
 DATABASE_USER=
 DATABASE_PASSWORD=
 DATABASE_HOST=
 DATABASE_PORT=
 DATABASE_NAME=
-```
-
-3. To make sure again, install dependencies and required libraries in requirement.txt 
-```markdown
-
-pip install -r requirements.txt
-
 ```
 
 4. Running 
