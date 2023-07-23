@@ -14,18 +14,14 @@ def create_employee():
         division_id = data['division_id']
 
         # Cek apakah id dan title sudah ada di database
-        existing_id = Employees.query.filter_by(id=data['id']).first()
-        existing_phone = Employees.query.filter_by(phone=data['phone']).first()
-
-        if existing_id :
+        if Employees.query.filter_by(id=data['id']).first() :
             return jsonify({'message': 'Id already exists!', 'code':400})
         
-        if existing_phone :
+        if Employees.query.filter_by(phone=data['phone']).first() :
             return jsonify({'message': 'Number phone already exists!', 'code':400})
 
         # Cek apakah ID divisi ada di database
-        existing_division = Divisions.query.get(division_id)
-        if not existing_division:
+        if not Divisions.query.get(division_id):
             return jsonify({'message': 'Division not found!'}), 404
 
         new_employee = Employees(id=id, name=name, email=email, phone=phone, 
