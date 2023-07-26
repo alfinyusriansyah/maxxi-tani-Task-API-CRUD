@@ -30,3 +30,20 @@ def create_employee():
         db.session.commit()
 
         return jsonify({'message': 'Employee created successfully!', 'data' : data}), 201
+
+@app.route("/employees", methods=['GET'])
+def get_all_employee ():
+    employees = Employees.query.order_by(Employees.name,Employees.id ).all()
+
+    employee_list = []
+    for employee in employees:
+        data_employee = {
+            "id" : employee.id,
+            'name': employee.name,
+            'email': employee.email,
+            'phone': employee.phone,
+            'address': employee.address,
+            'division_name': employee.division.name
+        }
+        employee_list.append(data_employee)
+    return jsonify(employee_list), 200

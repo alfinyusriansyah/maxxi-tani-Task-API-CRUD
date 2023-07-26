@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.getenv('DATABASE_USER')}:{
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Pindahkan definisi route ke file controller.py
-from controller import *
+from employee_controller import *
 
 # Pindahkan db.create_all() ke dalam blok ini, sehingga hanya dipanggil sekali saat aplikasi dijalankan.
 with app.app_context():
