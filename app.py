@@ -101,7 +101,7 @@ def update_employees(id):
         # Cek apakah data employee dengan id tertentu sudah ada di database
         existing_employee = Employess.query.filter_by(id=id).first()
         if not existing_employee:
-            return jsonify({'message': 'Employee not found!'}), 404
+            return jsonify({'message': 'id Employee not found!'}), 404
         
         # Cek apakah ID divisi ada di database
         existing_division = Divisions.query.get(division_id)
