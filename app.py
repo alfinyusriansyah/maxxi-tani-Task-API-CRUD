@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Pindahkan definisi route ke file controller.py
 from employee_controller import *
+from division_controller import *
 
 # Pindahkan db.create_all() ke dalam blok ini, sehingga hanya dipanggil sekali saat aplikasi dijalankan.
 with app.app_context():
