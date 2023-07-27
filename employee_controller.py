@@ -72,7 +72,7 @@ def update_employee_byid(id):
         if not existing_division:
             return jsonify({'message' : 'id Division not found!'}), 404
         
-            # Update data employee
+        # Update data employee
         existing_employee.name = name
         existing_employee.email = email
         existing_employee.phone = phone
@@ -83,3 +83,13 @@ def update_employee_byid(id):
         return jsonify({'message': 'Employee updated successfully!'}), 200
     
 
+@app.route("/employees/<int:id>", methods=['DELETE'])
+def delete_employee(id):
+    employee = Employees.query.filter_by(id=id).first()
+    if not employee:
+        return({'massage': 'id Employee not found!'}), 404
+    
+    db.session.delete(employee)
+    db.session.commit()
+
+    return({'massage': 'successfully delete employe'}), 200
